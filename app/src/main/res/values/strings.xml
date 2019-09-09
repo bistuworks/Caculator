@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Caculator</string>
+    <string name="ac">AC</string>
+    <string name="add_op">＋</string>
+    <string name="sub_op">-</string>
+    <string name="multiply_op">×</string>
+    <string name="div_op">÷</string>
+    <string name="equal_op">＝</string>
+    <string name="percent">%</string>
+    <string name="dot">·</string>
+    <string name="num_0">0</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
+    <string name="num_9">9</string>
+    <string name="cell_height">65dp</string>
+</resources>
