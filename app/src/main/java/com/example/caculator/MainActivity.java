@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         text_res.setText(resString);
     }
 
-    private TextView getCurrentView() {
+    private TextView getCurrentTextView() {
         TextView textView;
         if ("".equals(text_op.getText().toString())) {
             textView = text_v;
@@ -99,11 +99,21 @@ public class MainActivity extends AppCompatActivity {
         return textView;
     }
 
+    private void handleNumClick(Button num) {
+        TextView textView = getCurrentTextView();
+        if (!textView.getText().toString().contains(PERCENT)) {
+            if (!"".equals(text_res.getText().toString())) {
+                acAction();
+            }
+        }
+        addNum((String) num.getText());
+    }
+
     private void addEventListener() {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView = getCurrentView();
+                TextView textView = getCurrentTextView();
                 String textViewString = textView.getText().toString();
                 if (!"".equals(textViewString)) {
                     if (textViewString.equals("0" + PERCENT)) {
@@ -122,12 +132,7 @@ public class MainActivity extends AppCompatActivity {
         percent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
+                TextView textView = getCurrentTextView();
                 String orgText = textView.getText().toString();
                 if (!orgText.contains(PERCENT)) {
                     if ("".equals(orgText)) {
@@ -141,12 +146,7 @@ public class MainActivity extends AppCompatActivity {
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
+                TextView textView = getCurrentTextView();
                 String org_text = textView.getText().toString();
                 if (!org_text.contains(DOT_STRING)) {
                     String setText = "";
@@ -281,174 +281,59 @@ public class MainActivity extends AppCompatActivity {
         });
         num_0.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_0.getText());
+                handleNumClick(num_0);
             }
         });
         num_1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_1.getText());
+                handleNumClick(num_1);
             }
         });
         num_2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_2.getText());
+                handleNumClick(num_2);
             }
         });
         num_3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_3.getText());
+                handleNumClick(num_3);
             }
         });
         num_4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_4.getText());
+                handleNumClick(num_4);
             }
         });
         num_5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_5.getText());
+                handleNumClick(num_5);
             }
         });
         num_6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_6.getText());
+                handleNumClick(num_6);
             }
         });
         num_7.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_7.getText());
+                handleNumClick(num_7);
             }
         });
         num_8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_8.getText());
+                handleNumClick(num_8);
             }
         });
         num_9.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                TextView textView;
-                if ("".equals(text_op.getText().toString())) {
-                    textView = text_v;
-                } else {
-                    textView = text_v2;
-                }
-                if (!textView.getText().toString().contains(PERCENT)) {
-                    if (!"".equals(text_res.getText().toString())) {
-                        acAction();
-                    }
-                }
-                addNum((String) num_9.getText());
+                handleNumClick(num_9);
             }
         });
     }
 
 
     private void addNum(String num) {
-        TextView setTextView;
-        if ("".equals(text_op.getText().toString())) {
-            setTextView = text_v;
-        } else {
-            setTextView = text_v2;
-        }
+        TextView setTextView = getCurrentTextView();
         String org_text = (String) setTextView.getText();
         switch (num) {
             case "0":
