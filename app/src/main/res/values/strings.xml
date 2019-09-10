@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Caculator</string>
     <string name="ac">AC</string>
+    <string name="back">BACK</string>
     <string name="add_op">＋</string>
     <string name="sub_op">-</string>
     <string name="multiply_op">×</string>
     <string name="div_op">÷</string>
     <string name="equal_op">＝</string>
     <string name="percent">%</string>
-    <string name="dot">·</string>
+    <string name="dot">.</string>
     <string name="num_0">0</string>
     <string name="num_1">1</string>
     <string name="num_2">2</string>
