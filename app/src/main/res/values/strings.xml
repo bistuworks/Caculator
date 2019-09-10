@@ -5,10 +5,13 @@
     <string name="add_op">＋</string>
     <string name="sub_op">-</string>
     <string name="multiply_op">×</string>
+    <string name="minus">-</string>
     <string name="div_op">÷</string>
     <string name="equal_op">＝</string>
     <string name="percent">%</string>
     <string name="dot">.</string>
+    <string name="left_bracket">(</string>
+    <string name="right_bracket">)</string>
     <string name="num_0">0</string>
     <string name="num_1">1</string>
     <string name="num_2">2</string>
@@ -20,4 +23,8 @@
     <string name="num_8">8</string>
     <string name="num_9">9</string>
     <string name="cell_height">65dp</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="power">^</string>
+    <string name="radical_sign">√</string>
 </resources>

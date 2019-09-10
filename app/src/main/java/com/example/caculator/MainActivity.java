@@ -1,6 +1,6 @@
 package com.example.caculator;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView text_res;
     private TextView text_op;
     private Button equal_op;
+    private Button change;
 
     private void acAction() {
         text_v.setText("");
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         text_v2.setText("");
         text_res.setText("");
     }
+
 
     private void initWidget() {
         dot = (Button) findViewById(R.id.dot);
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         num_7 = (Button) findViewById(R.id.num_7);
         num_8 = (Button) findViewById(R.id.num_8);
         num_9 = (Button) findViewById(R.id.num_9);
+        change = (Button) findViewById(R.id.change);
     }
 
     private void setResText(double res) {
@@ -110,6 +112,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEventListener() {
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ScienceCaculatorActivity.class);
+                startActivity(intent);
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,7 +198,12 @@ public class MainActivity extends AppCompatActivity {
                     text_v.setText(textResContent);
                     text_v2.setText("");
                 }
-                text_op.setText(R.string.sub_op);
+
+                if ("".equals(text_v.getText().toString())) {
+                    text_v.setText("-");
+                } else {
+                    text_op.setText(R.string.sub_op);
+                }
             }
         });
         multiply_op.setOnClickListener(new View.OnClickListener() {
@@ -335,6 +349,7 @@ public class MainActivity extends AppCompatActivity {
     private void addNum(String num) {
         TextView setTextView = getCurrentTextView();
         String org_text = (String) setTextView.getText();
+        String org_text_pre = org_text;
         switch (num) {
             case "0":
                 // 只有当求值字符串为""或者求值字符串的第一个值不为0的情况下才允许添加0到求值字符串中
@@ -343,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     if (org_text.length() >= 2) {
                         if ("0".equals(String.valueOf(org_text.charAt(0)))) {
-                            if (!DOT_STRING.equals(String.valueOf(org_text.charAt(1))))
+                            if (DOT_STRING.equals(String.valueOf(org_text.charAt(1))))
                                 setTextView.setText((String) (setTextView.getText() + num));
                         } else {
                             setTextView.setText((String) (setTextView.getText() + num));
@@ -370,14 +385,17 @@ public class MainActivity extends AppCompatActivity {
                     if (org_text.length() >= 2) {
                         // 处理百分号的情况
                         if (org_text.contains(PERCENT)) {
+                            if ("-".equals(String.valueOf(org_text.charAt(0)))){
+                                org_text = org_text_pre.substring(1, org_text_pre.length() - 1);
+                            }
                             if ("0".equals(String.valueOf(org_text.charAt(0)))) {
                                 setTextView.setText(num + PERCENT);
                             } else {
-                                String t = org_text.substring(0, org_text.length() - 1) + num + PERCENT;
+                                String t = org_text_pre.substring(0, org_text.length() - 1) + num + PERCENT;
                                 setTextView.setText(t);
                             }
                         } else {
-                            setTextView.setText(org_text + num);
+                            setTextView.setText(org_text_pre + num);
                         }
                     } else {
                         // 当字符串的第一个数字为0的时候，添加其它数字时会将0删除

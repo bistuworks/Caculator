@@ -6,27 +6,29 @@
     android:orientation="vertical"
     tools:context="com.example.caculator.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120dp" />
 
     <TextView
         android:id="@+id/text_v"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/text_op"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/text_v2"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/text_res"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -34,8 +36,8 @@
 
         <Button
             android:id="@+id/ac"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/ac"
@@ -52,8 +54,8 @@
 
         <Button
             android:id="@+id/percent"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/percent"
@@ -73,10 +75,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/num_7"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_7"
@@ -84,8 +87,8 @@
 
         <Button
             android:id="@+id/num_8"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_8"
@@ -93,8 +96,8 @@
 
         <Button
             android:id="@+id/num_9"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_9"
@@ -114,10 +117,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/num_4"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_4"
@@ -125,8 +129,8 @@
 
         <Button
             android:id="@+id/num_5"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_5"
@@ -143,8 +147,8 @@
 
         <Button
             android:id="@+id/sub_op"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/sub_op"
@@ -155,10 +159,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/num_1"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_1"
@@ -166,8 +171,8 @@
 
         <Button
             android:id="@+id/num_2"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_2"
@@ -184,8 +189,8 @@
 
         <Button
             android:id="@+id/add_op"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/add_op"
@@ -196,18 +201,20 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
-            android:layout_height="65dp"
+            android:id="@+id/change"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="#"
+            android:text="E"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/num_0"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/num_0"
@@ -224,12 +231,13 @@
 
         <Button
             android:id="@+id/equal_op"
-            android:layout_height="65dp"
             android:layout_width="0dip"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/equal_op"
             android:textSize="20sp" />
     </LinearLayout>
+
 
 </LinearLayout>
