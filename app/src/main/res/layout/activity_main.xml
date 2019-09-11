@@ -4,31 +4,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.caculator.MainActivity">
+    tools:context="com.example.caculator.ScienceActivity">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="120dp" />
-
-    <TextView
-        android:id="@+id/text_v"
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:id="@+id/text_op"
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:id="@+id/text_v2"
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:id="@+id/text_res"
+        android:id="@+id/org"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/text_exp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/left_bracket"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/left_bracket"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/right_bracket"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/right_bracket"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/minus"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sin"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/sin"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/cos"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/cos"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/power"
+            android:layout_width="0dip"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/power"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/radical_sign"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/radical_sign"
+            android:textSize="20sp" />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -238,6 +300,7 @@
             android:text="@string/equal_op"
             android:textSize="20sp" />
     </LinearLayout>
+
 
 
 </LinearLayout>
