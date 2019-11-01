@@ -1,6 +1,7 @@
 package com.example.caculator;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -418,6 +419,10 @@ public class ScienceActivity extends AppCompatActivity {
         setContentView(R.layout.simple);
         initWidget();
         addEventListener();
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            Intent intent = new Intent(ScienceActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 }

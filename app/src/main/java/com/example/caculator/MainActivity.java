@@ -1,12 +1,16 @@
 package com.example.caculator;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView org;
     private Button left_bracket;
     private Button right_bracket;
-    private Button minus;
+
+    private Button tan;
 
     private void initWidgets() {
-        minus = (Button) findViewById(R.id.minus);
+        tan = (Button) findViewById(R.id.tan);
         left_bracket = (Button) findViewById(R.id.left_bracket);
         right_bracket = (Button) findViewById(R.id.right_bracket);
         org = (TextView) findViewById(R.id.org);
@@ -73,12 +78,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEventListener() {
-        minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
         left_bracket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,6 +254,18 @@ public class MainActivity extends AppCompatActivity {
                 textExp.setText("");
             }
         });
+        tan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.tan(Double.valueOf(excuteData));
+                org.setText("tan(" + excuteData + ") " + "= " + String.valueOf(res));
+                textExp.setText("");
+            }
+        });
         power.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -283,6 +294,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         addEventListener();
-        Toast.makeText(MainActivity.this, "启动", Toast.LENGTH_SHORT).show();
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Intent intent = new Intent(MainActivity.this, ScienceActivity.class);
+            startActivity(intent);
+        }
     }
 }
