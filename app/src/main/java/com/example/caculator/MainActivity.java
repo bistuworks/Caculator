@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView org;
     private Button left_bracket;
     private Button right_bracket;
+    private Button lg;
+    private Button ln;
+    private Button reciprocal;
+    private Button factorial;
 
     private Button tan;
 
@@ -237,8 +241,8 @@ public class MainActivity extends AppCompatActivity {
                 if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
-                double res = Math.sin(Double.valueOf(excuteData));
-                org.setText("sin(" + excuteData + ") " + "= " + String.valueOf(res));
+                double res = Math.sin(Math.toRadians(Double.valueOf(excuteData)));
+                org.setText("sin(" + excuteData + ") " + "= " + String.format("%.1f", res));
                 textExp.setText("");
             }
         });
@@ -249,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
                 if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
-                double res = Math.cos(Double.valueOf(excuteData));
-                org.setText("cos(" + excuteData + ") " + "= " + String.valueOf(res));
+                double res = Math.cos(Math.toRadians(Double.valueOf(excuteData)));
+                org.setText("cos(" + excuteData + ") " + "= " + String.format("%.1f", res));
                 textExp.setText("");
             }
         });
@@ -261,8 +265,8 @@ public class MainActivity extends AppCompatActivity {
                 if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
-                double res = Math.tan(Double.valueOf(excuteData));
-                org.setText("tan(" + excuteData + ") " + "= " + String.valueOf(res));
+                double res = Math.tan(Math.toRadians(Double.valueOf(excuteData)));
+                org.setText("tan(" + excuteData + ") " + "= " + String.format("%.1f", res));
                 textExp.setText("");
             }
         });

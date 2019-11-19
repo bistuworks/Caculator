@@ -60,7 +60,7 @@ public class HLActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        String url = "http://haobaoshui.com:8008/exchangerate/v1/rate?scur=usd&tcur=cny";
+        String url = "http://t.finlu.com.cn:5000/rate?scur=usd&tcur=cny";
         OkHttpClient okHttpClient = new OkHttpClient();
         final Request request = new Request.Builder().url(url).get().build();
         Call call = okHttpClient.newCall(request);

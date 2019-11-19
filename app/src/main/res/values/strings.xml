@@ -12,6 +12,8 @@
     <string name="dot">.</string>
     <string name="left_bracket">(</string>
     <string name="right_bracket">)</string>
+    <string name="ln">ln</string>
+    <string name="lg">lg</string>
     <string name="num_0">0</string>
     <string name="num_1">1</string>
     <string name="num_2">2</string>
@@ -28,4 +30,7 @@
     <string name="tan">tan</string>
     <string name="power">^</string>
     <string name="radical_sign">√</string>
+    <string name="factorial">n!</string>
+    <string name="reciprocal">1/X</string>
+    <string name="name">jzw</string>
 </resources>

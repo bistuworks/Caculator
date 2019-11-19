@@ -42,6 +42,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/ac"
+            android:textAllCaps="false"
             android:textSize="20sp" />
 
         <Button
@@ -51,6 +52,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/back"
+            android:textAllCaps="false"
             android:textSize="20sp" />
 
         <Button
@@ -204,19 +206,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/change"
-            android:layout_width="0dip"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="E"
-            android:textSize="20sp" />
-
-        <Button
             android:id="@+id/num_0"
             android:layout_width="0dip"
             android:layout_height="50dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:text="@string/num_0"
             android:textSize="20sp" />
@@ -237,6 +230,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/equal_op"
+            android:background="@color/orange"
             android:textSize="20sp" />
     </LinearLayout>
 

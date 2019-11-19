@@ -68,13 +68,13 @@ public class ChangeActivity extends AppCompatActivity {
 
     private void initWidgets() {
         A = (Button) findViewById(R.id.a);
-        B=(Button) findViewById(R.id.B);
-        C=(Button) findViewById(R.id.C);
+        B = (Button) findViewById(R.id.B);
+        C = (Button) findViewById(R.id.C);
         D = (Button) findViewById(R.id.D);
         E = (Button) findViewById(R.id.E);
         F = (Button) findViewById(R.id.F);
         ten_to_two = (Button) findViewById(R.id.ten_to_two);
-        ten_to_eight = (Button)  findViewById(R.id.ten_to_eight);
+        ten_to_eight = (Button) findViewById(R.id.ten_to_eight);
         ten_to_16 = (Button) findViewById(R.id.ten_to_16);
         two_to_eight = (Button) findViewById(R.id.two_to_eight);
         two_to_ten = (Button) findViewById(R.id.two_to_ten);
@@ -105,62 +105,62 @@ public class ChangeActivity extends AppCompatActivity {
         num_9 = (Button) findViewById(R.id.num_9);
     }
 
-   private String ten_to_2(int num) {
-       ArrayList seq = new ArrayList<>();
-       int m = num / 2;
-       while (m != 0) {
-           int mod = num % 2;
-           m = num / 2;
-           num = m;
-           seq.add(mod);
-       }
-       String ret = "";
-       for (int i=seq.size()-1; i>=0;i--) {
-           ret += seq.get(i);
-       }
-       return ret;
-   }
+    private String ten_to_2(int num) {
+        ArrayList seq = new ArrayList<>();
+        int m = num / 2;
+        while (m != 0) {
+            int mod = num % 2;
+            m = num / 2;
+            num = m;
+            seq.add(mod);
+        }
+        String ret = "";
+        for (int i = seq.size() - 1; i >= 0; i--) {
+            ret += seq.get(i);
+        }
+        return ret;
+    }
 
-   private String ten_to_eight(int num) {
+    private String ten_to_eight(int num) {
         String two_str = ten_to_2(num);
         return two_to_eight(two_str);
-   }
-   private String eight_to_two(String eight_num)
-   {
-       String return_ret = "";
-       for (int i=0;i<eight_num.length();i++){
-           switch(eight_num.charAt(i)) {
-               case '0':
-                   return_ret += "000";
-                   break;
-               case '1':
-                   return_ret += "001";
-                   break;
-               case '2':
-                   return_ret += "010";
-                   break;
-               case '3':
-                   return_ret += "011";
-                   break;
-               case '4':
-                   return_ret += "100";
-                   break;
-               case '5':
-                   return_ret += "101";
-                   break;
-               case '6':
-                   return_ret += "110";
-                   break;
-               case '7':
-                   return_ret += "111";
-           }
-       }
-       return return_ret;
-   }
+    }
 
-   private String to_two_16(String num_16) {
+    private String eight_to_two(String eight_num) {
         String return_ret = "";
-        for (int i=0;i<num_16.length();i++){
+        for (int i = 0; i < eight_num.length(); i++) {
+            switch (eight_num.charAt(i)) {
+                case '0':
+                    return_ret += "000";
+                    break;
+                case '1':
+                    return_ret += "001";
+                    break;
+                case '2':
+                    return_ret += "010";
+                    break;
+                case '3':
+                    return_ret += "011";
+                    break;
+                case '4':
+                    return_ret += "100";
+                    break;
+                case '5':
+                    return_ret += "101";
+                    break;
+                case '6':
+                    return_ret += "110";
+                    break;
+                case '7':
+                    return_ret += "111";
+            }
+        }
+        return return_ret;
+    }
+
+    private String to_two_16(String num_16) {
+        String return_ret = "";
+        for (int i = 0; i < num_16.length(); i++) {
             switch (num_16.charAt(i)) {
                 case '0':
                     return_ret += "0000";
@@ -212,122 +212,123 @@ public class ChangeActivity extends AppCompatActivity {
             }
         }
         return return_ret;
-   }
+    }
 
-   private String two_to_eight(String two_str) {
-       if (two_str.length() % 3 == 1) {
-           two_str = "00" + two_str;
-       }else if (two_str.length() % 3 ==2) {
-           two_str = "0" + two_str;
-       }
-       String return_ret = "";
-       for (int i=0;i<two_str.length();i+=3) {
-           String three_str = two_str.substring(i, i+3);
-           String ret="";
-           switch (three_str) {
-               case "000":
-                   ret = "0";
-                   break;
-               case "001":
-                   ret = "1";
-                   break;
-               case "010":
-                   ret = "2";
-                   break
-                           ;
-               case "011":
-                   ret = "3";
-                   break;
-               case "100":
-                   ret = "4";
-                   break;
-               case "101":
-                   ret = "5";
-                   break;
-               case "110":
-                   ret = "6";
-                   break;
-               case "111":
-                   ret = "7";
-                   break;
-           }
-           return_ret += ret;
-       }
-       return return_ret;
-   }
-   private String two_to_16(String two_str) {
-       if (two_str.length() % 4 == 1) {
-           two_str = "000" + two_str;
-       }else if (two_str.length() %4 ==2) {
-           two_str = "00" + two_str;
-       } else if (two_str.length() % 4 == 3) {
-           two_str = "00" + two_str;
-       }
-       String return_ret = "";
-       for (int i=0;i<two_str.length();i+=4) {
-           String four_str = two_str.substring(i, i+4);
-           String ret="";
-           switch (four_str) {
-               case "0000":
-                   ret = "0";
-                   break;
-               case "0001":
-                   ret = "1";
-                   break;
-               case "0010":
-                   ret = "2";
-                   break
-                           ;
-               case "0011":
-                   ret = "3";
-                   break;
-               case "0100":
-                   ret = "4";
-                   break;
-               case "0101":
-                   ret = "5";
-                   break;
-               case "0110":
-                   ret = "6";
-                   break;
-               case "0111":
-                   ret = "7";
-                   break;
-               case "1000":
-                   ret = "8";
-                   break;
-               case "1001":
-                   ret = "9";
-                   break;
-               case "1010":
-                   ret = "A";
-                   break;
-               case "1011":
-                   ret = "B";
-                   break;
-               case "1100":
-                   ret ="C";
-                   break;
-               case "1101":
-                   ret = "D";
-                   break;
-               case "1110":
-                   ret = "E";
-                   break;
-               case "1111":
-                   ret = "F";
-                   break;
+    private String two_to_eight(String two_str) {
+        if (two_str.length() % 3 == 1) {
+            two_str = "00" + two_str;
+        } else if (two_str.length() % 3 == 2) {
+            two_str = "0" + two_str;
+        }
+        String return_ret = "";
+        for (int i = 0; i < two_str.length(); i += 3) {
+            String three_str = two_str.substring(i, i + 3);
+            String ret = "";
+            switch (three_str) {
+                case "000":
+                    ret = "0";
+                    break;
+                case "001":
+                    ret = "1";
+                    break;
+                case "010":
+                    ret = "2";
+                    break
+                            ;
+                case "011":
+                    ret = "3";
+                    break;
+                case "100":
+                    ret = "4";
+                    break;
+                case "101":
+                    ret = "5";
+                    break;
+                case "110":
+                    ret = "6";
+                    break;
+                case "111":
+                    ret = "7";
+                    break;
+            }
+            return_ret += ret;
+        }
+        return return_ret;
+    }
 
-           }
-           return_ret += ret;
-       }
-       return return_ret;
-   }
+    private String two_to_16(String two_str) {
+        if (two_str.length() % 4 == 1) {
+            two_str = "000" + two_str;
+        } else if (two_str.length() % 4 == 2) {
+            two_str = "00" + two_str;
+        } else if (two_str.length() % 4 == 3) {
+            two_str = "00" + two_str;
+        }
+        String return_ret = "";
+        for (int i = 0; i < two_str.length(); i += 4) {
+            String four_str = two_str.substring(i, i + 4);
+            String ret = "";
+            switch (four_str) {
+                case "0000":
+                    ret = "0";
+                    break;
+                case "0001":
+                    ret = "1";
+                    break;
+                case "0010":
+                    ret = "2";
+                    break
+                            ;
+                case "0011":
+                    ret = "3";
+                    break;
+                case "0100":
+                    ret = "4";
+                    break;
+                case "0101":
+                    ret = "5";
+                    break;
+                case "0110":
+                    ret = "6";
+                    break;
+                case "0111":
+                    ret = "7";
+                    break;
+                case "1000":
+                    ret = "8";
+                    break;
+                case "1001":
+                    ret = "9";
+                    break;
+                case "1010":
+                    ret = "A";
+                    break;
+                case "1011":
+                    ret = "B";
+                    break;
+                case "1100":
+                    ret = "C";
+                    break;
+                case "1101":
+                    ret = "D";
+                    break;
+                case "1110":
+                    ret = "E";
+                    break;
+                case "1111":
+                    ret = "F";
+                    break;
 
-   private String ten_to_16(int num) {
-       String two_str = ten_to_2(num);
-       return two_to_16(two_str);
-   }
+            }
+            return_ret += ret;
+        }
+        return return_ret;
+    }
+
+    private String ten_to_16(int num) {
+        String two_str = ten_to_2(num);
+        return two_to_16(two_str);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -383,7 +384,7 @@ public class ChangeActivity extends AppCompatActivity {
                         return;
                     } else {
                         String ret = ten_to_2(Integer.valueOf(org_text));
-                        text_pre.setText("十进制" + org_text +"转换为二进制是" + Integer.toBinaryString(Integer.valueOf(org_text)));
+                        text_pre.setText("十进制" + org_text + "转换为二进制是" + Integer.toBinaryString(Integer.valueOf(org_text)));
                         text_v.setText("");
                     }
                 }
@@ -399,7 +400,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("十进制" + org_text +"转换为八进制是" + Integer.toOctalString(Integer.valueOf(org_text)));
+                        text_pre.setText("十进制" + org_text + "转换为八进制是" + Integer.toOctalString(Integer.valueOf(org_text)));
                         text_v.setText("");
                     }
                 }
@@ -414,7 +415,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("十进制" + org_text +"转换为十六进制是" + Integer.toHexString(Integer.valueOf(org_text)));
+                        text_pre.setText("十进制" + org_text + "转换为十六进制是" + Integer.toHexString(Integer.valueOf(org_text)));
                         text_v.setText("");
                     }
                 }
@@ -429,7 +430,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("二进制" + org_text +"转换为八进制是" + two_to_eight(org_text));
+                        text_pre.setText("二进制" + org_text + "转换为八进制是" + two_to_eight(org_text));
                         text_v.setText("");
                     }
                 }
@@ -444,7 +445,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("二进制" + org_text +"转换为十进制是" + (Integer.valueOf(org_text, 2).toString()));
+                        text_pre.setText("二进制" + org_text + "转换为十进制是" + (Integer.valueOf(org_text, 2).toString()));
                         text_v.setText("");
                     }
                 }
@@ -459,7 +460,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("二进制" + org_text +"转换为十六进制是" + two_to_16(org_text));
+                        text_pre.setText("二进制" + org_text + "转换为十六进制是" + two_to_16(org_text));
                         text_v.setText("");
                     }
                 }
@@ -474,7 +475,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text +"转换为二进制是" + eight_to_two(org_text));
+                        text_pre.setText("八进制" + org_text + "转换为二进制是" + eight_to_two(org_text));
                         text_v.setText("");
                     }
                 }
@@ -489,7 +490,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text +"转换为十进制是" + Integer.valueOf(org_text, 8).toString());
+                        text_pre.setText("八进制" + org_text + "转换为十进制是" + Integer.valueOf(org_text, 8).toString());
                         text_v.setText("");
                     }
                 }
@@ -504,7 +505,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text +"转换为十六进制是" + two_to_16(eight_to_two(org_text)));
+                        text_pre.setText("八进制" + org_text + "转换为十六进制是" + two_to_16(eight_to_two(org_text)));
                         text_v.setText("");
                     }
                 }
@@ -519,7 +520,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("十六进制" + org_text +"转换为八进制是" + two_to_eight(to_two_16(org_text)));
+                        text_pre.setText("十六进制" + org_text + "转换为八进制是" + two_to_eight(to_two_16(org_text)));
                         text_v.setText("");
                     }
                 }
@@ -534,7 +535,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text +"转换为十六进制是" + to_two_16(org_text));
+                        text_pre.setText("八进制" + org_text + "转换为十六进制是" + to_two_16(org_text));
                         text_v.setText("");
                     }
                 }
@@ -549,7 +550,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text +"转换为十六进制是" + Integer.valueOf(to_two_16(org_text), 2).toString());
+                        text_pre.setText("八进制" + org_text + "转换为十六进制是" + Integer.valueOf(to_two_16(org_text), 2).toString());
                         text_v.setText("");
                     }
                 }
@@ -566,42 +567,50 @@ public class ChangeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "1");
             }
-        });num_2.setOnClickListener(new View.OnClickListener() {
+        });
+        num_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "2");
             }
-        });num_3.setOnClickListener(new View.OnClickListener() {
+        });
+        num_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "3");
             }
-        });num_4.setOnClickListener(new View.OnClickListener() {
+        });
+        num_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "4");
             }
-        });num_5.setOnClickListener(new View.OnClickListener() {
+        });
+        num_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "5");
             }
-        });num_6.setOnClickListener(new View.OnClickListener() {
+        });
+        num_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "6");
             }
-        });num_7.setOnClickListener(new View.OnClickListener() {
+        });
+        num_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "7");
             }
-        });num_8.setOnClickListener(new View.OnClickListener() {
+        });
+        num_8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "8");
             }
-        });num_9.setOnClickListener(new View.OnClickListener() {
+        });
+        num_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text_v.setText(text_v.getText().toString() + "9");
@@ -627,7 +636,7 @@ public class ChangeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String org_text = text_v.getText().toString();
                 if (!"".equals(org_text)) {
-                    text_v.setText(org_text.substring(0, org_text.length()-1));
+                    text_v.setText(org_text.substring(0, org_text.length() - 1));
                 }
             }
         });

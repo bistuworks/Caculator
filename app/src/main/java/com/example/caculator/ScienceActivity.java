@@ -113,13 +113,7 @@ public class ScienceActivity extends AppCompatActivity {
     }
 
     private void addEventListener() {
-        change.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ScienceActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
