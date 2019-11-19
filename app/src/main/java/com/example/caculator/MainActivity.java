@@ -79,9 +79,87 @@ public class MainActivity extends AppCompatActivity {
         cos = (Button) findViewById(R.id.cos);
         power = (Button) findViewById(R.id.power);
         radical_sign = (Button) findViewById(R.id.radical_sign);
+        lg = (Button) findViewById(R.id.lg);
+        ln = (Button) findViewById(R.id.ln);
+        reciprocal = (Button) findViewById(R.id.reciprocal);
+        factorial = (Button) findViewById(R.id.factorial);
+    }
+
+    /**
+     * 求n的阶乘
+     * @param n
+     * @return 数n的阶乘
+     */
+    private int doFactorial(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return n * doFactorial(n - 1);
     }
 
     private void addEventListener() {
+        lg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.log10(Double.valueOf(excuteData));
+                org.setText("lg(" + excuteData + ") " + "= " + String.format("%.1f", res));
+                textExp.setText("");
+            }
+        });
+        ln.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.log(Double.valueOf(excuteData));
+                org.setText("ln(" + excuteData + ") " + "= " + String.format("%.1f", res));
+                textExp.setText("");
+            }
+        });
+        reciprocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                // 除数等于0
+                try {
+                    double res = Math.log(Double.valueOf(excuteData));
+                    org.setText("1/" + excuteData  + "= " + String.format("%.1f", res));
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "0没有倒数", Toast.LENGTH_SHORT).show();
+                } finally {
+                    textExp.setText("");
+                }
+            }
+        });
+        factorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                try {
+                    double res = doFactorial(Integer.valueOf(excuteData));
+                    org.setText(excuteData +"!" + "= " + String.format("%.1f", res));
+                } catch (Exception e ) {
+                    Toast.makeText(MainActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
+                } finally {
+                    textExp.setText("");
+                }
+            }
+        });
         left_bracket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
