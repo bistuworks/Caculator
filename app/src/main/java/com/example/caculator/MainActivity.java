@@ -79,9 +79,76 @@ public class MainActivity extends AppCompatActivity {
         cos = (Button) findViewById(R.id.cos);
         power = (Button) findViewById(R.id.power);
         radical_sign = (Button) findViewById(R.id.radical_sign);
+        lg = (Button) findViewById(R.id.lg);
+        ln = (Button) findViewById(R.id.ln);
+        reciprocal = (Button) findViewById(R.id.reciprocal);
+        factorial = (Button) findViewById(R.id.factorial);
+    }
+
+    /**
+     * 数n的阶乘
+     * @param n
+     * @return
+     */
+    private int doFactorial(int n) {
+        if (n < 0) {
+            return -1;
+        } else if (n == 0 | n == 1) {
+            return 1;
+        } else {
+            return n * doFactorial(n - 1);
+        }
     }
 
     private void addEventListener() {
+        lg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.log10(Double.valueOf(excuteData));
+                org.setText("lg(" + excuteData + ") " + "= " + String.format("%.1f", res));
+                textExp.setText("");
+            }
+        });
+        ln.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.log(Double.valueOf(excuteData));
+                org.setText("lg(" + excuteData + ") " + "= " + String.format("%.1f", res));
+                textExp.setText("");
+            }
+        });
+        reciprocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = 1 / (Double.valueOf(excuteData));
+                org.setText("1/" + excuteData + "= " + String.format("%f", res));
+                textExp.setText("");
+            }
+        });
+        factorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                int res = doFactorial(Integer.valueOf(excuteData));
+                org.setText(excuteData + "!" + "= " + String.format("%d", res));
+                textExp.setText("");
+            }
+        });
         left_bracket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     String excuteText = orgText;
                     excuteText = excuteText.replace("÷", "/");
                     excuteText = excuteText.replace("×", "*");
-                    try{
+                    try {
                         double res = Util.executeExpression(excuteText + "=");
                         org.setText(orgText + " = " + String.valueOf(res));
                         textExp.setText("");
@@ -238,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String excuteData = textExp.getText().toString();
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 double res = Math.sin(Math.toRadians(Double.valueOf(excuteData)));
@@ -250,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String excuteData = textExp.getText().toString();
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 double res = Math.cos(Math.toRadians(Double.valueOf(excuteData)));
@@ -262,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String excuteData = textExp.getText().toString();
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 double res = Math.tan(Math.toRadians(Double.valueOf(excuteData)));
@@ -298,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         addEventListener();
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Intent intent = new Intent(MainActivity.this, ScienceActivity.class);
             startActivity(intent);
         }
