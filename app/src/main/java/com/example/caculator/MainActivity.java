@@ -86,32 +86,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-<<<<<<< HEAD
      * 数n的阶乘
      * @param n
      * @return
-=======
-     * 求n的阶乘
-     * @param n
-     * @return 数n的阶乘
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
      */
     private int doFactorial(int n) {
         if (n < 0) {
             return -1;
-<<<<<<< HEAD
         } else if (n == 0 | n == 1) {
             return 1;
         } else {
             return n * doFactorial(n - 1);
         }
-=======
-        }
-        if (n == 0 || n == 1) {
-            return 1;
-        }
-        return n * doFactorial(n - 1);
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
     }
 
     private void addEventListener() {
@@ -119,11 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String excuteData = textExp.getText().toString();
-<<<<<<< HEAD
                 if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
-=======
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
                     return;
                 }
                 double res = Math.log10(Double.valueOf(excuteData));
@@ -135,19 +117,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String excuteData = textExp.getText().toString();
-<<<<<<< HEAD
                 if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 double res = Math.log(Double.valueOf(excuteData));
                 org.setText("lg(" + excuteData + ") " + "= " + String.format("%.1f", res));
-=======
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
-                    return;
-                }
-                double res = Math.log(Double.valueOf(excuteData));
-                org.setText("ln(" + excuteData + ") " + "= " + String.format("%.1f", res));
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
                 textExp.setText("");
             }
         });
@@ -155,53 +129,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String excuteData = textExp.getText().toString();
-<<<<<<< HEAD
                 if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 double res = 1 / (Double.valueOf(excuteData));
                 org.setText("1/" + excuteData + "= " + String.format("%f", res));
                 textExp.setText("");
-=======
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
-                    return;
-                }
-                // 除数等于0
-                try {
-                    double res = Math.log(Double.valueOf(excuteData));
-                    org.setText("1/" + excuteData  + "= " + String.format("%.1f", res));
-                } catch (Exception e) {
-                    Toast.makeText(MainActivity.this, "0没有倒数", Toast.LENGTH_SHORT).show();
-                } finally {
-                    textExp.setText("");
-                }
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
             }
         });
         factorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String excuteData = textExp.getText().toString();
-<<<<<<< HEAD
                 if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
                     return;
                 }
                 int res = doFactorial(Integer.valueOf(excuteData));
                 org.setText(excuteData + "!" + "= " + String.format("%d", res));
                 textExp.setText("");
-=======
-                if ("".equals(excuteData)|excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
-                    return;
-                }
-                try {
-                    double res = doFactorial(Integer.valueOf(excuteData));
-                    org.setText(excuteData +"!" + "= " + String.format("%.1f", res));
-                } catch (Exception e ) {
-                    Toast.makeText(MainActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
-                } finally {
-                    textExp.setText("");
-                }
->>>>>>> 83876766b121536d7f09ac2a1a5f6b138816b0af
             }
         });
         left_bracket.setOnClickListener(new View.OnClickListener() {
