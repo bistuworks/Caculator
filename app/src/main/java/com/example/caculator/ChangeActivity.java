@@ -535,7 +535,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text + "转换为十六进制是" + to_two_16(org_text));
+                        text_pre.setText("十六进制" + org_text + "转换为二进制是" + to_two_16(org_text));
                         text_v.setText("");
                     }
                 }
@@ -550,7 +550,7 @@ public class ChangeActivity extends AppCompatActivity {
                         Toast.makeText(ChangeActivity.this, "不支持小数点转换", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
-                        text_pre.setText("八进制" + org_text + "转换为十六进制是" + Integer.valueOf(to_two_16(org_text), 2).toString());
+                        text_pre.setText("十进制" + org_text + "转换为十六进制是" + Integer.valueOf(to_two_16(org_text), 2).toString());
                         text_v.setText("");
                     }
                 }

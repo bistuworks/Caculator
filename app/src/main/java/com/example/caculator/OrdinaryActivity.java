@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
 
-public class ScienceActivity extends AppCompatActivity {
+public class OrdinaryActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static final String ADD_OP = "+";
     public static final String SUB_OP = "-";
@@ -82,6 +82,10 @@ public class ScienceActivity extends AppCompatActivity {
         change = (Button) findViewById(R.id.change);
     }
 
+    /**
+     * 将计算结果整合成计算表达式，并存储在历史记录中
+     * @param res 计算结果
+     */
     private void setResText(double res) {
         String resString = String.valueOf(res);
         int dotIndex = resString.indexOf(".");
@@ -277,7 +281,7 @@ public class ScienceActivity extends AppCompatActivity {
                             setResText(res);
                         } catch (ArithmeticException e) {
                             String errMsg = "除数不能为零";
-                            Toast.makeText(ScienceActivity.this, errMsg, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OrdinaryActivity.this, errMsg, Toast.LENGTH_SHORT).show();
                             Log.e(TAG, e.getMessage());
                         }
                         break;
@@ -414,7 +418,7 @@ public class ScienceActivity extends AppCompatActivity {
         initWidget();
         addEventListener();
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            Intent intent = new Intent(ScienceActivity.this, MainActivity.class);
+            Intent intent = new Intent(OrdinaryActivity.this, MainActivity.class);
             startActivity(intent);
         }
     }

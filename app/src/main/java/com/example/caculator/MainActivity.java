@@ -3,14 +3,11 @@ package com.example.caculator;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Button ln;
     private Button reciprocal;
     private Button factorial;
+    private Button percent;
 
     private Button tan;
 
@@ -83,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         ln = (Button) findViewById(R.id.ln);
         reciprocal = (Button) findViewById(R.id.reciprocal);
         factorial = (Button) findViewById(R.id.factorial);
+        percent = (Button) findViewById(R.id.percent);
     }
 
     /**
@@ -101,6 +100,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEventListener() {
+        percent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Double.valueOf(excuteData) / 100;
+                org.setText( excuteData + "% " + "= " + String.format("%.1f", res));
+                textExp.setText("");
+            }
+        });
         lg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -211,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                             org.setText(orgText + " = " + String.valueOf(res));
                             textExp.setText("");
                         } catch (Exception e1) {
-                            textExp.setText("");
+//                            textExp.setText("");
                             Toast.makeText(MainActivity.this, "表达式输入异常", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -354,7 +365,13 @@ public class MainActivity extends AppCompatActivity {
         radical_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textExp.setText(textExp.getText().toString() + "√");
+                String excuteData = textExp.getText().toString();
+                if ("".equals(excuteData) | excuteData.contains("+") | excuteData.contains("-") | excuteData.contains("×") | excuteData.contains("÷")) {
+                    return;
+                }
+                double res = Math.sqrt(Double.valueOf(excuteData));
+                org.setText("√" + excuteData + "= " + String.format("%.1f", res));
+                textExp.setText("");
             }
         });
     }
@@ -366,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
         initWidgets();
         addEventListener();
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Intent intent = new Intent(MainActivity.this, ScienceActivity.class);
+            Intent intent = new Intent(MainActivity.this, OrdinaryActivity.class);
             startActivity(intent);
         }
     }
